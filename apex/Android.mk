@@ -33,11 +33,6 @@ LOCAL_REQUIRED_MODULES += \
     com.google.android.art
 endif
 
-# Bluetooth Mainline Module
-ifeq ($(MAINLINE_INCLUDE_BT_MODULE),true)
-LOCAL_REQUIRED_MODULES += \
-    com.google.android.bluetooth
-endif
 # UWB Mainline Module
 ifeq ($(MAINLINE_INCLUDE_UWB_MODULE),true)
 LOCAL_REQUIRED_MODULES += \

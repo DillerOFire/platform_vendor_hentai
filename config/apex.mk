@@ -16,7 +16,7 @@
 
 # Optional ART/BT/UWB/WIFI module
 MAINLINE_INCLUDE_ART_MODULE ?= true
-MAINLINE_INCLUDE_BT_MODULE ?= true
+MAINLINE_INCLUDE_BT_MODULE ?= false
 MAINLINE_INCLUDE_UWB_MODULE ?= true
 MAINLINE_INCLUDE_WIFI_MODULE ?= true
 
@@ -35,16 +35,8 @@ SOONG_CONFIG_NAMESPACES += uwb_module
 SOONG_CONFIG_uwb_module += source_build
 SOONG_CONFIG_uwb_module_source_build := true
 
-SOONG_CONFIG_NAMESPACES += bluetooth_module
-SOONG_CONFIG_bluetooth_module += source_build
-SOONG_CONFIG_bluetooth_module_source_build := true
-
 ifneq ($(MAINLINE_INCLUDE_ART_MODULE),true)
 ART_MODULE_BUILD_FROM_SOURCE := true
-endif
-
-ifeq ($(MAINLINE_INCLUDE_BT_MODULE),true)
-SOONG_CONFIG_bluetooth_module_source_build := false
 endif
 
 ifeq ($(MAINLINE_INCLUDE_UWB_MODULE),true)
